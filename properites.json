@@ -1,0 +1,290 @@
+{
+  "properties": [
+    {
+      "property_id": 1,
+      "userid": 1,
+      "title": "VILLA IN CORAL GABLES",
+      "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
+      "price": "100,000",
+      "details" : {
+        "status": "sale",
+        "area": 350,
+        "bedrooms": 3,
+        "car_garages": 1,
+        "bathroms": 3.5,
+        "garages": 2,
+        "shawers": 2
+      },
+      "additional_details": {
+        "built_id": 2013,
+        "parking": 1
+      },
+      "address":{
+        "city": "new_york"
+      },
+      "galleries": [
+
+      ]
+    },
+    {
+      "property_id": 2,
+      "userid": 1,
+      "title": "VILLA IN CORAL GABLES",
+      "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
+      "price": "825,000",
+      "details" : {
+        "status": "sale",
+        "area": 500,
+        "bedrooms": 3,
+        "car_garages": 1,
+        "bathroms": 3.5,
+        "garages": 2,
+        "shawers": 2
+      },
+      "additional_details": {
+        "built_id": 2013,
+        "parking": 1
+      },
+      "address":{
+        "city": "paris"
+      },
+      "galleries": [
+
+      ]
+    },
+    {
+      "property_id": 3,
+      "userid": 1,
+      "title": "VILLA IN CORAL GABLES",
+      "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
+      "price": "825,000",
+      "details" : {
+        "status": "sale",
+        "area": 350,
+        "bedrooms": 3,
+        "car_garages": 1,
+        "bathroms": 3.5,
+        "garages": 2,
+        "shawers": 2
+      },
+      "additional_details": {
+        "built_id": 2013,
+        "parking": 1
+      },
+      "address":{
+        "city": "casablanca"
+      },
+      "galleries": [
+
+      ]
+    },
+    {
+      "property_id": 4,
+      "userid": 2,
+      "title": "VILLA IN CORAL GABLES",
+      "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
+      "price": "825,000",
+      "details" : {
+        "status": "sale",
+        "area": 350,
+        "bedrooms": 3,
+        "car_garages": 1,
+        "bathroms": 3.5,
+        "garages": 2,
+        "shawers": 2
+      },
+      "additional_details": {
+        "built_id": 2013,
+        "parking": 1
+      },
+      "address":{
+        "city": "tokyo"
+      },
+      "galleries": [
+
+      ]
+    },
+    {
+      "property_id": 5,
+      "userid": 2,
+      "title": "VILLA IN CORAL GABLES",
+      "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
+      "price": "825,000",
+      "details" : {
+        "status": "sale",
+        "area": 350,
+        "bedrooms": 3,
+        "car_garages": 1,
+        "bathroms": 3.5,
+        "garages": 2,
+        "shawers": 2
+      },
+      "additional_details": {
+        "built_id": 2013,
+        "parking": 1
+      },
+      "address":{
+        "city": "new_york"
+      },
+      "galleries": [
+
+      ]
+    },
+    {
+      "property_id": 6,
+      "userid": 3,
+      "title": "VILLA IN CORAL GABLES",
+      "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
+      "price": "825,000",
+      "details" : {
+        "status": "sale",
+        "area": 350,
+        "bedrooms": 3,
+        "car_garages": 1,
+        "bathroms": 3.5,
+        "garages": 2,
+        "shawers": 2
+      },
+      "additional_details": {
+        "built_id": 2013,
+        "parking": 1
+      },
+      "address":{
+        "city": "new_york"
+      },
+      "galleries": [
+
+      ]
+    },
+    {
+      "property_id": 7,
+      "userid": 3,
+      "title": "VILLA IN CORAL GABLES",
+      "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
+      "price": "825,000",
+      "details" : {
+        "status": "sale",
+        "area": 350,
+        "bedrooms": 3,
+        "car_garages": 1,
+        "bathroms": 3.5,
+        "garages": 2,
+        "shawers": 2
+      },
+      "additional_details": {
+        "built_id": 2013,
+        "parking": 1
+      },
+      "address":{
+        "city": "paris"
+      },
+      "galleries": [
+
+      ]
+    },
+    {
+      "property_id": 8,
+      "userid": 1,
+      "title": "VILLA IN CORAL GABLES",
+      "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
+      "price": "825,000",
+      "details" : {
+        "status": "sale",
+        "area": 350,
+        "bedrooms": 3,
+        "car_garages": 1,
+        "bathroms": 3.5,
+        "garages": 2,
+        "shawers": 2
+      },
+      "additional_details": {
+        "built_id": 2013,
+        "parking": 1
+      },
+      "address":{
+        "city": "new_york"
+      },
+      "galleries": [
+
+      ]
+    },
+    {
+      "property_id": 9,
+      "userid": 1,
+      "title": "VILLA IN CORAL GABLES",
+      "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
+      "price": "825,000",
+      "details" : {
+        "status": "sale",
+        "area": 350,
+        "bedrooms": 3,
+        "car_garages": 1,
+        "bathroms": 3.5,
+        "garages": 2,
+        "shawers": 2
+      },
+      "additional_details": {
+        "built_id": 2013,
+        "parking": 1
+      },
+      "address":{
+        "city": "new_york"
+      },
+      "galleries": [
+
+      ]
+    },
+    {
+      "property_id": 10,
+      "userid": 1,
+      "title": "VILLA IN CORAL GABLES",
+      "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
+      "price": "825,000",
+      "details" : {
+        "status": "rent",
+        "area": 350,
+        "bedrooms": 3,
+        "car_garages": 1,
+        "bathroms": 3.5,
+        "garages": 2,
+        "shawers": 2
+      },
+      "additional_details": {
+        "built_id": 2013,
+        "parking": 1
+      },
+      "address":{
+        "city": "new_york"
+      },
+      "galleries": [
+
+      ]
+    },
+    {
+      "property_id": 11,
+      "userid": 1,
+      "title": "VILLA IN CORAL GABLES",
+      "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
+      "price": "825,000",
+      "details" : {
+        "status": "rent",
+        "area": 350,
+        "bedrooms": 3,
+        "car_garages": 1,
+        "bathroms": 3.5,
+        "garages": 2,
+        "shawers": 2
+      },
+      "additional_details": {
+        "built_id": 2013,
+        "parking": 1
+      },
+      "address":{
+        "city": "tokyo"
+      },
+      "galleries": [
+
+      ]
+    }
+  ]
+}
