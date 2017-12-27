@@ -76,6 +76,15 @@ app.controller('MyCtrl', function($scope, $window, $http, $location) {
         $window.localStorage.removeItem('user');
 
     }
+
+    vm.getPropertImage = function (el) {
+        var index = vm.stanovi.indexOf(el) + 1;
+        if (index > 6) {
+
+        }
+        return 'assets/img/demo/property-' + index + '.jpg';
+    }
+
     vm.register = function () {
         if(vm.password==vm.password1){
             vm.autorizovan = true;

@@ -477,7 +477,7 @@
                             <div class="col-sm-6 col-md-4 p0" ng-repeat="el in vm.stanovi.slice(((vm.currentPage-1)*vm.itemsPerPage), ((vm.currentPage)*vm.itemsPerPage))">
                                     <div class="box-two proerty-item">
                                         <div class="item-thumb">
-                                            <a href="property.html?property_id={{el.property_id}}" ><img src="assets/img/demo/property-3.jpg"></a>
+                                            <a href="property.html?property_id={{el.property_id}}" ><img src="{{vm.getPropertImage(el)}}"></a>
                                         </div>
 
                                         <div class="item-entry overflow">
