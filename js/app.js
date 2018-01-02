@@ -1,4 +1,4 @@
-var app = angular.module('myApp', []);
+var app = angular.module('myApp', ['ui.bootstrap']);
 
 app.controller('MyCtrl', function($scope, $window, $http, $location) {
     var vm = this;
@@ -6,23 +6,37 @@ app.controller('MyCtrl', function($scope, $window, $http, $location) {
     vm.svi_stanovi = [];
     vm.stanovi = [];
     vm.stan = null;
+    vm.moji_stanovi = [];
+
+    vm.korisnici = [];
+    vm.korisnik = null;
+
+    vm.user = null;
 
     vm.currentPage = 1;
     vm.itemsPerPage = 9;
     vm.totalItems = 10;
     vm.maxSize = 5;
 
-    vm.login = function () {
-        console.log(vm.username);
-        if(vm.username == 'sofija' && vm.password == '1234'){
-            vm.autorizovan = true;
-            $window.localStorage.setItem('user', vm.username);
-            $window.location.href = "index.html";
-        }else{
-            $scope.alerts.push({ type: 'danger', msg: 'Korisnicko ime ili sifra nisu validni' } );
-            return;
-        }
+    $scope.alerts = [
+    ];
 
+    $scope.closeAlert = function(index) {
+        $scope.alerts.splice(index, 1);
+    };
+
+
+    vm.login = function () {
+        for (var i in vm.korisnici) {
+            var korisnik = vm.korisnici[i];
+            console.log(korisnik);
+            if (vm.username == korisnik.username && vm.password == korisnik.password) {
+                vm.autorizovan = true;
+                $window.localStorage.setItem('user', JSON.stringify(korisnik));
+                $window.location.href = "index.html";
+            }
+        }
+        $scope.alerts.push({ type: 'danger', msg: 'Korisnicko ime ili sifra nisu validni' } );
     }
 
     vm.filterStatus = function () {
@@ -80,8 +94,9 @@ app.controller('MyCtrl', function($scope, $window, $http, $location) {
     vm.getPropertImage = function (el) {
         var index = vm.stanovi.indexOf(el) + 1;
         if (index > 6) {
-
+            index = index % 6 + 1;
         }
+        console.log('assets/img/demo/property-' + index + '.jpg');
         return 'assets/img/demo/property-' + index + '.jpg';
     }
 
@@ -113,6 +128,21 @@ app.controller('MyCtrl', function($scope, $window, $http, $location) {
         return stan;
     }
 
+    vm.vratiKorisnika = function(user_id) {
+        if (user_id == null || user_id == undefined) {
+            return null;
+        }
+
+        var korisnik = null;
+        for (var i in vm.korisnici) {
+            if (vm.korisnici[i].user_id == user_id) {
+                korisnik = vm.korisnici[i];
+                break;
+            }
+        }
+        return korisnik;
+    }
+
     vm.vratiStatus = function(status) {
         switch (status) {
             case 'sale':
@@ -130,12 +160,26 @@ app.controller('MyCtrl', function($scope, $window, $http, $location) {
         var captured = /property_id=([^&]+)/.exec(url);
         var property_id = captured !== null ? captured[1] : null;
 
-        vm.username = $window.localStorage.getItem('user');
-        if(vm.username != undefined){
+        var my_properites = /my_properties.html/.exec(url);
+        vm.user = $window.localStorage.getItem('user');
+        if(vm.user != undefined){
+            vm.user = JSON.parse(vm.user);
             vm.autorizovan = true;
         }else{
             vm.autorizovan = false;
         }
+
+        var req1 = {
+            method: "GET",
+            //url: "http://88.99.171.79:8080/filmovi?search="+vm.searchText
+            url: "users.json"
+        }
+        $http(req1).then(
+            function(resp){
+                vm.korisnici = resp.data.users;
+            }, function(resp){
+                vm.message = 'error';
+            });
 
         var req = {
             method: "GET",
@@ -145,16 +189,25 @@ app.controller('MyCtrl', function($scope, $window, $http, $location) {
         $http(req).then(
             function(resp){
                 vm.svi_stanovi = resp.data.properties;
+                if (vm.user != null && my_properites != null) {
+                    var list = [];
+                    for (var i in vm.svi_stanovi) {
+                        if (vm.svi_stanovi[i].user_id == vm.user.user_id ) {
+                            list.push(vm.svi_stanovi[i]);
+                        }
+                    }
+                }
+                vm.stanovi = list != undefined ? list : vm.svi_stanovi;
 
-                vm.stanovi = vm.svi_stanovi;
-                vm.totalItems = vm.svi_stanovi.length;
+                vm.totalItems = vm.stanovi.length;
 
                 vm.stan = vm.vratiStan(property_id);
-                console.log(vm.stan);
+                if (vm.stan != null && vm.stan.hasOwnProperty('user_id')) {
+                    vm.korisnik = vm.vratiKorisnika(vm.stan.user_id);
+                }
             }, function(resp){
                 vm.message = 'error';
             });
-
     }
 
     vm.init();
