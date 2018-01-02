@@ -91,104 +91,11 @@
                         <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.5s">Submit</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
-                        <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
-                            <ul class="dropdown-menu navbar-nav">
-                                <li>
-                                    <a href="index-2.html">Home Style 2</a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html">Home Style 3</a>
-                                </li>
-                                <li>
-                                    <a href="index-4.html">Home Style 4</a>
-                                </li>
-                                <li>
-                                    <a href="index-5.html">Home Style 5</a>
-                                </li>
-
-                            </ul>
-                        </li>
-
+                        
+                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="index.html">Home</a></li>
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="property.html">Property</a></li>
-                        <li class="dropdown yamm-fw" data-wow-delay="0.1s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="yamm-content">
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <h5>Home pages</h5>
-                                                <ul>
-                                                    <li>
-                                                        <a href="index.html">Home Style 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-2.html">Home Style 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-3.html">Home Style 3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-4.html">Home Style 4</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-5.html">Home Style 5</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Pages and blog</h5>
-                                                <ul>
-                                                    <li><a href="blog.html">Blog listing</a>  </li>
-                                                    <li><a href="single.html">Blog Post (full)</a>  </li>
-                                                    <li><a href="single-right.html">Blog Post (Right)</a>  </li>
-                                                    <li><a href="single-left.html">Blog Post (left)</a>  </li>
-                                                    <li><a href="contact.html">Contact style (1)</a> </li>
-                                                    <li><a href="contact-3.html">Contact style (2)</a> </li>
-                                                    <li><a href="contact_3.html">Contact style (3)</a> </li>
-                                                    <li><a href="faq.html">FAQ page</a> </li> 
-                                                    <li><a href="404.html">404 page</a>  </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property</h5>
-                                                <ul>
-                                                    <li><a href="property-1.html">Property pages style (1)</a> </li>
-                                                    <li><a href="property-2.html">Property pages style (2)</a> </li>
-                                                    <li><a href="property-3.html">Property pages style (3)</a> </li>
-                                                </ul>
-
-                                                <h5>Properties list</h5>
-                                                <ul>
-                                                    <li><a href="properties.html">Properties list style (1)</a> </li> 
-                                                    <li><a href="properties-2.html">Properties list style (2)</a> </li> 
-                                                    <li><a href="properties-3.html">Properties list style (3)</a> </li> 
-                                                </ul>                                               
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property process</h5>
-                                                <ul> 
-                                                    <li><a href="submit-property.html">Submit - step 1</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 2</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 3</a> </li> 
-                                                </ul>
-                                                <h5>User account</h5>
-                                                <ul>
-                                                    <li><a href="register.html">Register / login</a>   </li>
-                                                    <li><a href="user-properties.html">Your properties</a>  </li>
-                                                    <li><a href="submit-property.html">Submit property</a>  </li>
-                                                    <li><a href="change-password.html">Change password</a> </li>
-                                                    <li><a href="user-profile.html">Your profile</a>  </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.yamm-content -->
-                                </li>
-                            </ul>
-                        </li>
+                       
 
                         <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li>
                     </ul>
@@ -224,7 +131,7 @@
                                     <fieldset>
                                         <div class="row">
                                             <div class="col-xs-12">
-                                                <input type="text" ng-model="vm.text" class="form-control" placeholder="Key word">
+                                                <input type="text" ng-model="vm.searchText" class="form-control" placeholder="Key word">
                                             </div>
                                         </div>
                                     </fieldset>
@@ -243,7 +150,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-xs-6">
-                                                <select id="basic" class="form-control"  ng-model="vm.status" ng-change="vm.filterStatus()">
+                                                <select id="basic" class="form-control"  ng-model="vm.status" >
                                                     <option value="sale">For Sale </option>
                                                     <option value="rent">For Rent</option>
                                                 </select>
@@ -267,87 +174,22 @@
                                     <fieldset class="padding-5">
                                         <div class="row">
                                             <div class="col-xs-6">
-                                                <label for="price-range">Min baths :</label>
-                                                <input type="text" class="span2" value="" data-slider-min="0" 
-                                                       data-slider-max="600" data-slider-step="5" 
-                                                       data-slider-value="[250,450]" id="min-baths" ><br />
-                                                <b class="pull-left color">1</b> 
-                                                <b class="pull-right color">120</b>                                                
+                                                <label for="price-range">Number of rooms :</label>
+                                                <input type="number" min=0 class="form-control" value=""
+                                                       id="num-rooms" ng-model="vm.bedrooms"><br />                                                
                                             </div>
 
                                             <div class="col-xs-6">
-                                                <label for="property-geo">Min bed :</label>
-                                                <input type="text" class="span2" value="" data-slider-min="0" 
-                                                       data-slider-max="600" data-slider-step="5" 
-                                                       data-slider-value="[250,450]" id="min-bed" ><br />
-                                                <b class="pull-left color">1</b> 
-                                                <b class="pull-right color">120</b>
+                                                 <label for="price-range">Number of bads :</label>
+                                                <input type="number" min=0 class="form-control" value=""
+                                                       id="num-bads" ng-model="vm.bathroms"><br /> 
 
                                             </div>
                                         </div>
                                     </fieldset>
 
-                                    <fieldset class="padding-5">
-                                        <div class="row">
-                                            <div class="col-xs-6">
-                                                <div class="checkbox">
-                                                    <label><input type="checkbox" ng-model="vm.car"  ng-true-value="1" ng-false-value="0">Car garages</label>
-                                                </div> 
-                                            </div>
-
-                                            <div class="col-xs-6">
-                                                <div class="checkbox">
-                                                    <label> <input type="checkbox"> Dual Sinks</label>
-                                                </div>
-                                            </div>                                            
-                                        </div>
-                                    </fieldset>
-
-                                    <fieldset class="padding-5">
-                                        <div class="row">
-                                            <div class="col-xs-6"> 
-                                                <div class="checkbox">
-                                                    <label> <input type="checkbox" checked> Swimming Pool</label>
-                                                </div>
-                                            </div>  
-                                            <div class="col-xs-6"> 
-                                                <div class="checkbox">
-                                                    <label> <input type="checkbox" checked> 2 Stories </label>
-                                                </div>
-                                            </div>  
-                                        </div>
-                                    </fieldset>
-
-                                    <fieldset class="padding-5">
-                                        <div class="row">
-                                            <div class="col-xs-6"> 
-                                                <div class="checkbox">
-                                                    <label><input type="checkbox"> Laundry Room </label>
-                                                </div>
-                                            </div>  
-                                            <div class="col-xs-6"> 
-                                                <div class="checkbox">
-                                                    <label> <input type="checkbox"> Emergency Exit</label>
-                                                </div>
-                                            </div>  
-                                        </div>
-                                    </fieldset>
-
-                                    <fieldset class="padding-5">
-                                        <div class="row">
-                                            <div class="col-xs-6"> 
-                                                <div class="checkbox">
-                                                    <label>  <input type="checkbox" checked> Jog Path </label>
-                                                </div>
-                                            </div>  
-                                            <div class="col-xs-6"> 
-                                                <div class="checkbox">
-                                                    <label>  <input type="checkbox"> 26' Ceilings </label>
-                                                </div>
-                                            </div>  
-                                        </div>
-                                    </fieldset>
-
+                       
+    
                                     <fieldset class="padding-5">
                                         <div class="row">
                                             <div class="col-xs-12"> 
@@ -443,7 +285,7 @@
                                     </a>
                                 </li>
                                 <li class="">
-                                    <a href="javascript:void(0);" class="order_by_price" data-orderby="property_price" data-order="DESC">
+                                    <a class="order_by_price" data-orderby="property_price" data-order="DESC">
                                         Property Price <i class="fa fa-sort-numeric-desc"></i>						
                                     </a>
                                 </li>
@@ -474,7 +316,7 @@
 
                     <div class="col-md-12 clear"> 
                         <div id="list-type" class="proerty-th">
-                            <div class="col-sm-6 col-md-4 p0" ng-repeat="el in vm.stanovi.slice(((vm.currentPage-1)*vm.itemsPerPage), ((vm.currentPage)*vm.itemsPerPage))">
+                            <div class="col-sm-6 col-md-4 p0" ng-repeat="el in vm.stanovi.slice(((vm.currentPage-1)*vm.itemsPerPage), ((vm.currentPage)*vm.itemsPerPage)) | orderBy:'el.price'">
                                     <div class="box-two proerty-item">
                                         <div class="item-thumb">
                                             <a href="property.html?property_id={{el.property_id}}" ><img src="{{vm.getPropertImage(el)}}"></a>

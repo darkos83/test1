@@ -53,13 +53,94 @@ app.controller('MyCtrl', function($scope, $window, $http, $location) {
     }
 
     vm.search = function () {
-        console.log(vm.city);
-        console.log(vm.status);
-        console.log(vm.text);
-        console.log(vm.minPrice);
-        console.log(vm.maxPrice);
-        console.log(vm.car_garages);
+        if(vm.city == undefined && vm.status == undefined && vm.bedrooms == undefined && vm.bathrooms == undefined && vm.minPrice == undefined && vm.maxPrice == undefined && vm.searchText == undefined){
+        vm.init();
+            return;
+            
+        }
+        
+        var list = [];
+        var tmp_list = [];
+        if(vm.city != undefined){
+            for(var i in vm.svi_stanovi){
+            var stan = vm.svi_stanovi[i];
+            if(vm.city == stan.address.city){
+                list.push(stan);
+            }
+            }
+        }else{
+            list = vm.svi_stanovi;
+        }
+        
+        if(vm.status != undefined){
+            for(var i in list){
+            var stan = list[i];
+            if(vm.status == stan.details.status){
+                tmp_list.push(stan);
+            }
+            }
+            list = tmp_list;
+            tmp_list = [];
+        }
+        if(vm.bedrooms != undefined){
+              for(var i in list){
+            var stan = list[i];
+            if(vm.bedrooms == stan.details.bedrooms){
+                tmp_list.push(stan);
+            }
+            }
+            list = tmp_list;
+            tmp_list = [];
+        }
+         if(vm.bathroms != undefined){
+              for(var i in list){
+            var stan = list[i];
+            if(vm.bathroms == stan.details.bathroms){
+                tmp_list.push(stan);
+            }
+            }
+            list = tmp_list;
+            tmp_list = [];
+        }
+        
+      if(vm.minPrice != undefined){
+              for(var i in list){
+            var stan = list[i];
+            if(stan.price >= vm.minPrice){
+                tmp_list.push(stan);
+            }
+            }
+            list = tmp_list;
+            tmp_list = [];
+        }
+         if(vm.maxPrice != undefined){
+              for(var i in list){
+            var stan = list[i];
+            if(stan.price <= vm.maxPrice){
+                tmp_list.push(stan);
+            }
+            }
+            list = tmp_list;
+            tmp_list = [];
+        }
+        console.log(vm.searchText);
+        if(vm.searchText != undefined){
+         for(var i in list){
+            var stan = list[i];
+             console.log(vm.searchText);
+            if(stan.title.toLowerCase().indexOf(vm.searchText.toLowerCase())!=-1){
+                        tmp_list.push(stan);
 
+            }
+            }
+            
+            list = tmp_list;
+            tmp_list = []; 
+        }
+        
+        vm.stanovi = list;
+        vm.totalItems = list.length;
+        
     }
     vm.reset = function () {
         vm.city = null;
@@ -71,6 +152,36 @@ app.controller('MyCtrl', function($scope, $window, $http, $location) {
 
         vm.init();
     }
+    
+    vm.orderByPrice = function() {
+       var list =  vm.stanovi.sort(vm.compare);
+        console.log(list);
+    }
+    
+     vm.favorite = function(el){
+        if (!vm.autorizovan) {
+            $scope.alerts.push({ type: 'danger', msg: 'Morate da budete ulogovani' } );
+            return;
+        }
+        el.favorite = !el.favorite;
+        if(el.favorite == true){
+            $scope.alerts.push({ type: 'success', msg: 'Film prebacen u grupu omiljenih' } )
+        }else {
+            $scope.alerts.push({ type: 'danger', msg: 'Film vise nije omiljen' } )
+        }
+     }
+    
+    vm.compare = function(a,b){
+        console.log(a.price < b.price);
+        if(a.price < b.price){
+            return -1;
+            
+        }
+        if(a.price > b.price){
+            return 1;
+        }
+        return 0;
+    } 
     vm.logout = function () {
         vm.autorizovan = false;
         $window.localStorage.removeItem('user');
