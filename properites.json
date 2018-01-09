@@ -5,7 +5,7 @@
       "user_id": 1,
       "title": "HOUSE IN CORAL GABLES",
       "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
-      "price": "100000",
+      "price": 100000,
       "details" : {
         "status": "sale",
         "area": 350,
@@ -31,7 +31,7 @@
       "user_id": 1,
       "title": "VILLA IN CORAL GABLES",
       "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
-      "price": "50000",
+      "price": 50000,
       "details" : {
         "status": "sale",
         "area": 500,
@@ -57,7 +57,7 @@
       "user_id": 1,
       "title": "VILLA IN CORAL GABLES",
       "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
-      "price": "825000",
+      "price": 825000,
       "details" : {
         "status": "sale",
         "area": 350,
@@ -83,7 +83,7 @@
       "user_id": 2,
       "title": "VILLA IN CORAL GABLES",
       "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
-      "price": "825000",
+      "price": 825000,
       "details" : {
         "status": "sale",
         "area": 350,
@@ -109,7 +109,7 @@
       "user_id": 2,
       "title": "VILLA IN CORAL GABLES",
       "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
-      "price": "825000",
+      "price": 825000,
       "details" : {
         "status": "sale",
         "area": 350,
@@ -135,7 +135,7 @@
       "user_id": 3,
       "title": "VILLA IN CORAL GABLES",
       "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
-      "price": "825000",
+      "price": 825000,
       "details" : {
         "status": "sale",
         "area": 350,
@@ -161,7 +161,7 @@
       "user_id": 3,
       "title": "VILLA IN CORAL GABLES",
       "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
-      "price": "825000",
+      "price": 825000,
       "details" : {
         "status": "sale",
         "area": 350,
@@ -187,7 +187,7 @@
       "user_id": 1,
       "title": "VILLA IN CORAL GABLES",
       "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
-      "price": "825000",
+      "price": 825000,
       "details" : {
         "status": "sale",
         "area": 350,
@@ -213,7 +213,7 @@
       "user_id": 1,
       "title": "VILLA IN CORAL GABLES",
       "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
-      "price": "825000",
+      "price": 825000,
       "details" : {
         "status": "sale",
         "area": 350,
@@ -239,7 +239,7 @@
       "user_id": 1,
       "title": "VILLA IN CORAL GABLES",
       "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
-      "price": "825000",
+      "price": 825000,
       "details" : {
         "status": "rent",
         "area": 350,
@@ -265,7 +265,7 @@
       "user_id": 1,
       "title": "VILLA IN CORAL GABLES",
       "description": "Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies",
-      "price": "825000",
+      "price": 825000,
       "details" : {
         "status": "rent",
         "area": 350,

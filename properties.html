@@ -57,12 +57,13 @@
                     <div class="col-md-2 col-md-offset-5  col-sm-3 col-sm-offset-1  col-xs-12">
                         <div class="header-half header-social">
                             <ul class="list-inline">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><span ng-show="vm.autorizovan">Login as: {{vm.user.username}}</span></li>
+       <!--                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fa fa-vine"></i></a></li>
                                 <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                                 <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>-->
                             </ul>
                         </div>
                     </div>
@@ -87,17 +88,20 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">Login</button>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.5s">Submit</button>
+                        <button class="navbar-btn nav-button wow bounceInRight login" ng-hide="vm.autorizovan" onclick="window.open('register.html')" data-wow-delay="0.45s">Login</button>
+                        <button class="navbar-btn nav-button wow bounceInRight logout" ng-show="vm.autorizovan" ng-click="vm.logout()" data-wow-delay="0.45s">Logout</button>
+                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.48s">Submit</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
-                        
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="index.html">Home</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="property.html">Property</a></li>
-                       
 
-                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li>
+
+
+                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="index.html">Home</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="properties.html">Properties</a></li>
+
+                        <li class="wow fadeInDown" data-wow-delay="0.3s" ng-show="vm.autorizovan"><a class="" href="user-properties.html">My Properties</a></li>
+
+                        <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="contact.html">Contact</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -285,8 +289,8 @@
                                     </a>
                                 </li>
                                 <li class="">
-                                    <a class="order_by_price" data-orderby="property_price" data-order="DESC">
-                                        Property Price <i class="fa fa-sort-numeric-desc"></i>						
+                                    <a class="order_by_price" ng-click="vm.orderByColumn()" >
+                                        Property Price <i class="fa {{vm.sortClass}}"></i>
                                     </a>
                                 </li>
                             </ul><!--/ .sort-by-list-->
@@ -316,14 +320,14 @@
 
                     <div class="col-md-12 clear"> 
                         <div id="list-type" class="proerty-th">
-                            <div class="col-sm-6 col-md-4 p0" ng-repeat="el in vm.stanovi.slice(((vm.currentPage-1)*vm.itemsPerPage), ((vm.currentPage)*vm.itemsPerPage)) | orderBy:'el.price'">
+                            <div class="col-sm-6 col-md-4 p0" ng-repeat="el in vm.stanovi.slice(((vm.currentPage-1)*vm.itemsPerPage), ((vm.currentPage)*vm.itemsPerPage)) | orderBy : vm.sortColumn : vm.reverse ">
                                     <div class="box-two proerty-item">
                                         <div class="item-thumb">
                                             <a href="property.html?property_id={{el.property_id}}" ><img src="{{vm.getPropertImage(el)}}"></a>
                                         </div>
 
                                         <div class="item-entry overflow">
-                                            <h5><a href="property-1.html">{{el.title}}</a></h5>
+                                            <h5>{{el.title}}</h5>
                                             <div class="dot-hr"></div>
                                             <span class="pull-left"><b>{{el.details.area}}</b></span>
                                             <span class="proerty-price pull-right">{{el.price}}</span>
@@ -332,6 +336,7 @@
                                                 <img src="assets/img/icon/bed.png">({{el.details.bedrooms}})|
                                                 <img src="assets/img/icon/shawer.png">({{el.details.shawers}})|
                                                 <img src="assets/img/icon/cars.png">({{el.details.garages}})
+
                                             </div>
                                         </div>
 
