@@ -20,6 +20,10 @@ app.controller('MyCtrl', function($scope, $window, $http, $location) {
     vm.totalItems = 10;
     vm.maxSize = 5;
 
+    vm.sortColumn = 'price';
+    vm.sortClass = 'fa-sort-numeric-asc';
+    vm.reverse = false;
+
     $scope.alerts = [
     ];
 
@@ -40,6 +44,24 @@ app.controller('MyCtrl', function($scope, $window, $http, $location) {
         }
         $scope.alerts.push({ type: 'danger', msg: 'Korisnicko ime ili sifra nisu validni' } );
     }
+    
+    vm.orderByColumn = function() {
+        console.log(vm.reverse);
+        if (vm.reverse) {
+            vm.reverse = false;
+            vm.sortClass = 'fa-sort-numeric-asc';
+        } else {
+            vm.sortClass = 'fa-sort-numeric-desc';
+            vm.reverse = true;
+        }
+    }
+    vm.removeProperty = function (item) {
+        if (confirm('Da li ste sigurni')) {
+            var index = vm.stanovi.indexOf(item);
+            vm.stanovi.splice(index, 1);
+        }
+
+    };
 
     vm.search = function () {
         if(vm.city == undefined && vm.status == undefined && vm.bedrooms == undefined && vm.bathrooms == undefined && vm.minPrice == undefined && vm.maxPrice == undefined && vm.searchText == undefined){
@@ -112,11 +134,9 @@ app.controller('MyCtrl', function($scope, $window, $http, $location) {
             list = tmp_list;
             tmp_list = [];
         }
-        console.log(vm.searchText);
         if(vm.searchText != undefined){
          for(var i in list){
             var stan = list[i];
-             console.log(vm.searchText);
             if(stan.title.toLowerCase().indexOf(vm.searchText.toLowerCase())!=-1){
                         tmp_list.push(stan);
 
@@ -162,7 +182,6 @@ app.controller('MyCtrl', function($scope, $window, $http, $location) {
      }
     
     vm.compare = function(a,b){
-        console.log(a.price < b.price);
         if(a.price < b.price){
             return -1;
             
@@ -184,7 +203,6 @@ app.controller('MyCtrl', function($scope, $window, $http, $location) {
         if (index > 6) {
             index = index % 6 + 1;
         }
-        console.log('assets/img/demo/property-' + index + '.jpg');
         return 'assets/img/demo/property-' + index + '.jpg';
     }
 
@@ -275,7 +293,8 @@ app.controller('MyCtrl', function($scope, $window, $http, $location) {
         var captured = /property_id=([^&]+)/.exec(url);
         var property_id = captured !== null ? captured[1] : null;
 
-        var my_properites = /my_properties.html/.exec(url);
+        var my_properites = /user-properties.html/.exec(url);
+
         vm.user = $window.localStorage.getItem('user');
         if(vm.user != undefined){
             vm.user = JSON.parse(vm.user);
