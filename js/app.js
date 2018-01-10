@@ -7,6 +7,8 @@ app.controller('MyCtrl', function($scope, $window, $http, $location) {
     vm.stanovi = [];
     vm.stan = null;
     vm.moji_stanovi = [];
+    vm.novi_stan = null;
+    vm.kreiran = false;
 
     vm.korisnici = [];
     vm.korisnik = null;
@@ -37,33 +39,6 @@ app.controller('MyCtrl', function($scope, $window, $http, $location) {
             }
         }
         $scope.alerts.push({ type: 'danger', msg: 'Korisnicko ime ili sifra nisu validni' } );
-    }
-
-    vm.filterStatus = function () {
-        var list = [];
-        for(var i in vm.stanovi){
-            var stan = vm.stanovi[i];
-            console.log(vm.status);
-            console.log(stan.details.status);
-            console.log(vm.status == stan.details.status)
-            if(vm.status == stan.details.status){
-                list.push(stan);
-            }
-        }
-        vm.stanovi = list;
-        vm.totalItems = list.length;
-    }
-
-    vm.filterCity = function () {
-        var list = [];
-        for(var i in vm.stanovi){
-            var stan = vm.stanovi[i];
-            if(vm.city == stan.address.city){
-                list.push(stan);
-            }
-        }
-        vm.stanovi = list;
-        vm.totalItems = list.length;
     }
 
     vm.search = function () {
@@ -156,6 +131,7 @@ app.controller('MyCtrl', function($scope, $window, $http, $location) {
         vm.totalItems = list.length;
         
     }
+
     vm.reset = function () {
         vm.city = null;
         vm.status = null;
@@ -195,7 +171,8 @@ app.controller('MyCtrl', function($scope, $window, $http, $location) {
             return 1;
         }
         return 0;
-    } 
+    }
+    
     vm.logout = function () {
         vm.autorizovan = false;
         $window.localStorage.removeItem('user');
@@ -222,7 +199,34 @@ app.controller('MyCtrl', function($scope, $window, $http, $location) {
             return;
         }
 
-    }
+    };
+
+    vm.kreirajSatn = function () {
+        if (!vm.autorizovan) {
+            $window.location.href = "register.html";
+        }
+        var stan = {
+            "details": {},
+            "additional_details": {},
+            "address":{}
+        };
+        stan.user_id = vm.user.user_id;
+        stan.title = vm.novi_stan.hasOwnProperty('title') ? vm.novi_stan.title : null;
+        stan.price = vm.novi_stan.hasOwnProperty('price') ? vm.novi_stan.price : null;
+        stan.description = vm.novi_stan.hasOwnProperty('description') ? vm.novi_stan.description : null;
+        stan.address.city = vm.novi_stan.hasOwnProperty('address') && vm.novi_stan.address.hasOwnProperty('city') ? vm.novi_stan.address.city : null;
+        stan.details.status = vm.novi_stan.hasOwnProperty('details') && vm.novi_stan.details.hasOwnProperty('status') ? vm.novi_stan.details.status : null;
+        stan.details.area = vm.novi_stan.hasOwnProperty('details') && vm.novi_stan.details.hasOwnProperty('area') ? vm.novi_stan.details.area : null;
+        stan.details.bedrooms = vm.novi_stan.hasOwnProperty('details') && vm.novi_stan.details.hasOwnProperty('bedrooms') ? vm.novi_stan.details.bedrooms : null;
+        stan.details.bathrooms = vm.novi_stan.hasOwnProperty('details') && vm.novi_stan.details.hasOwnProperty('bathrooms') ? vm.novi_stan.details.bathrooms : null;
+        stan.details.car_garages = vm.novi_stan.hasOwnProperty('details') && vm.novi_stan.details.hasOwnProperty('car_garages') ? vm.novi_stan.details.car_garages : null;
+        stan.details.garages = vm.novi_stan.hasOwnProperty('details') && vm.novi_stan.details.hasOwnProperty('garages') ? vm.novi_stan.details.garages : null;
+        stan.details.shawers = vm.novi_stan.hasOwnProperty('details') && vm.novi_stan.details.hasOwnProperty('shawers') ? vm.novi_stan.details.shawers : null;
+
+        vm.stanovi.push(stan);
+        vm.kreiran = true;
+        // $window.location.href = "user-properties.html";
+    };
 
     vm.vratiStan = function(property_id) {
         if (property_id == null || property_id == undefined) {
