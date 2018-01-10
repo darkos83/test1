@@ -3044,3 +3044,9 @@ padding: 10px;
 #map {
     height: 300px;
 }
+
+@media(min-width: 1400px){
+    .property-modal > .modal-lg {
+        width: 1308px;
+    }
+}
