@@ -175,8 +175,8 @@
                                                 <img src="assets/img/icon/shawer.png">({{el.details.shawers}})|
                                                 <img src="assets/img/icon/cars.png">({{el.details.car_garages}})
 
-                                                <div class="dealer-action pull-right">                                        
-                                                    <a href="submit-property.html" class="button">Edit </a>
+                                                <div class="dealer-action pull-right" ng-show="vm.autorizovan">
+                                                    <a href="" ng-click="vm.izmeniStan(el)" class="button">Edit </a>
                                                     <a href="" ng-click="vm.removeProperty(el)" class="button delete_user_car">Delete</a>
                                                     <a href="property.html?property_id={{el.property_id}}" class="button">View</a>
                                                 </div>
@@ -376,7 +376,7 @@
                         <div class="wizard-container">
 
                             <div class="wizard-card ct-wizard-orange">
-                                <form name="form.propertyForm" ng-submit="$ctrl.kreiraj()" novalidate>
+                                <form name="form.propertyForm" ng-submit="$ctrl.snimi()" novalidate>
                                     <div class="wizard-header">
                                         <h3>
                                             <b>Submit</b> YOUR PROPERTY <br>

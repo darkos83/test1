@@ -235,7 +235,7 @@ app.controller('MyCtrl', function($scope, $window, $http, $location, $uibModal) 
 
                 $ctrl.username = parent.username;
 
-                $ctrl.kreiraj = function () {
+                $ctrl.snimi = function () {
                     var stan = {
                         "details": {},
                         "additional_details": {},
@@ -276,37 +276,49 @@ app.controller('MyCtrl', function($scope, $window, $http, $location, $uibModal) 
         });
     };
 
-    vm.promeniStan = function(el){
+    vm.izmeniStan = function(el){
         var modalInstance = $uibModal.open({
             animation: false,
-            templateUrl: 'editMovie.html',
-            controller: function($uibModalInstance, movie){
+            templateUrl: 'propertyModal.html',
+            size: 'lg',
+            windowClass: 'property-modal',
+            controller: function($uibModalInstance, novi_stan){
                 var $ctrl = this;
+                $ctrl.novi_stan = angular.copy(novi_stan);
 
-                $ctrl.title = movie.title;
-
-                $ctrl.save = function(){
-                    $uibModalInstance.close($ctrl.title);
+                $ctrl.snimi = function(){
+                    novi_stan.title = $ctrl.novi_stan.hasOwnProperty('title') ? $ctrl.novi_stan.title : null;
+                    novi_stan.price = $ctrl.novi_stan.hasOwnProperty('price') ? parseInt($ctrl.novi_stan.price) : null;
+                    novi_stan.description = $ctrl.novi_stan.hasOwnProperty('description') ? $ctrl.novi_stan.description : null;
+                    novi_stan.address.city = $ctrl.novi_stan.hasOwnProperty('address') && $ctrl.novi_stan.address.hasOwnProperty('city') ? $ctrl.novi_stan.address.city : null;
+                    novi_stan.details.status = $ctrl.novi_stan.hasOwnProperty('details') && $ctrl.novi_stan.details.hasOwnProperty('status') ? $ctrl.novi_stan.details.status : null;
+                    novi_stan.details.area = $ctrl.novi_stan.hasOwnProperty('details') && $ctrl.novi_stan.details.hasOwnProperty('area') ? $ctrl.novi_stan.details.area : null;
+                    novi_stan.details.bedrooms = $ctrl.novi_stan.hasOwnProperty('details') && $ctrl.novi_stan.details.hasOwnProperty('bedrooms') ? $ctrl.novi_stan.details.bedrooms : null;
+                    novi_stan.details.bathrooms = $ctrl.novi_stan.hasOwnProperty('details') && $ctrl.novi_stan.details.hasOwnProperty('bathrooms') ? $ctrl.novi_stan.details.bathrooms : null;
+                    novi_stan.details.car_garages = $ctrl.novi_stan.hasOwnProperty('details') && $ctrl.novi_stan.details.hasOwnProperty('car_garages') ? $ctrl.novi_stan.details.car_garages : null;
+                    novi_stan.details.garages = $ctrl.novi_stan.hasOwnProperty('details') && $ctrl.novi_stan.details.hasOwnProperty('garages') ? $ctrl.novi_stan.details.garages : null;
+                    novi_stan.details.shawers = $ctrl.novi_stan.hasOwnProperty('details') && $ctrl.novi_stan.details.hasOwnProperty('shawers') ? $ctrl.novi_stan.details.shawers : null;
+                    $uibModalInstance.close();
                 }
 
-                $ctrl.cancel = function () {
+                $ctrl.odustani = function () {
                     $uibModalInstance.dismiss('cancel');
                 };
             },
             controllerAs: '$ctrl',
             resolve: {
-                movie: function () {
+                novi_stan: function () {
                     return el;
                 }
             }
         });
 
-        modalInstance.result.then(function (title) {
-            el.title = title;
+        modalInstance.result.then(function () {
         }, function () {
             console.log('modal-component dismissed at: ' + new Date());
         });
-    }
+    };
+
     vm.vratiStan = function(property_id) {
         if (property_id == null || property_id == undefined) {
             return null;
