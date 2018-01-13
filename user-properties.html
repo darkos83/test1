@@ -50,7 +50,7 @@
                         <div class="header-half header-call">
                             <p>
                                 <span><i class="pe-7s-call"></i> +1 234 567 7890</span>
-                                <span><i class="pe-7s-mail"></i> your@company.com</span>
+                                <span><i class="pe-7s-mail"></i> nekretnine@gmail.com</span>
                             </p>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                     <div class="button navbar-right">
                         <button class="navbar-btn nav-button wow bounceInRight login" ng-hide="vm.autorizovan" onclick="window.open('register.html')" data-wow-delay="0.45s">Login</button>
                         <button class="navbar-btn nav-button wow bounceInRight logout" ng-show="vm.autorizovan" ng-click="vm.logout()" data-wow-delay="0.45s">Logout</button>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.48s">Submit</button>
+                        
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
 
@@ -380,28 +380,32 @@
                                     <div class="wizard-header">
                                         <h3>
                                             <b>Submit</b> YOUR PROPERTY <br>
-                                            <small>Lorem ipsum dolor sit amet, consectetur adipisicing.</small>
+                                        
                                         </h3>
                                     </div>
                                     <div class="tab-content">
                                         <div>
-                                            <div class="row p-b-15  ">
-                                                <h4 class="info-text"> Let's start with the basic information (with validation)</h4>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
+                                            <div class="col-md-6 ">
+                                               
+                                                <div>
+                                                    <div class="form-group col-md-5">
                                                         <label>Property title <small>(required)</small></label>
                                                         <input ng-model="$ctrl.novi_stan.title" ng-required="true" name="propertyname" type="text" class="form-control" placeholder="Super villa ...">
                                                     </div>
+                                                    
 
-                                                    <div class="form-group">
+                                                    <div class="form-group col-md-5">
                                                         <label>Property price <small>(required)</small></label>
                                                         <input ng-model="$ctrl.novi_stan.price" ng-required="true" name="propertyprice" type="text" class="form-control" placeholder="3330000">
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label>Property Description :</label>
-                                                        <textarea ng-model="$ctrl.novi_stan.description" name="discrition" class="form-control" ></textarea>
+                                                      <div class="form-group col-md-5">
+                                                        <label>Property Status  :</label>
+                                                        <select id="basic" class="form-control"  ng-model="$ctrl.novi_stan.details.status">
+                                                            <option value="sale">For Sale </option>
+                                                            <option value="rent">For Rent</option>
+                                                        </select>
                                                     </div>
-                                                    <div class="form-group">
+                                                    <div class="form-group col-md-5">
                                                         <label>Property City :</label>
                                                         <select ng-model="$ctrl.novi_stan.address.city" id="lunchBegins" class="form-control">
                                                             <option value="new_york">New york, CA</option>
@@ -411,73 +415,70 @@
                                                             <option value="marraekch">Marraekch</option>
                                                         </select>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label>Property Statue  :</label>
-                                                        <select id="basic" class="form-control"  ng-model="$ctrl.novi_stan.details.status">
-                                                            <option value="sale">For Sale </option>
-                                                            <option value="rent">For Rent</option>
-                                                        </select>
+                                                 
+                                                       <div class="form-group col-md-5">
+                                                        <label>Property Description :</label>
+                                                        <textarea ng-model="$ctrl.novi_stan.description" name="discrition" class="form-control" ></textarea>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div>
-                                            <h4 class="info-text"> How much your Property is Beautiful ? </h4>
-                                            <div class="row">
-                                                <div class="col-sm-12 padding-top-15">
-                                                    <div class="col-sm-4">
+                                        
+                             
+                                            <div class="row col-md-6">
+                                                <div class="col-md-9">   
+                                                    <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="price-range">Area :</label>
-                                                            <input ng-model="$ctrl.novi_stan.details.area" type="number" min="0">
+                                                            <input ng-model="$ctrl.novi_stan.details.area" type="number" class="form-control" min="0">
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-4">
+                                                    <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="property-geo">Bedrooms :</label>
-                                                            <input ng-model="$ctrl.novi_stan.details.bedrooms" type="number" min="0">
+                                                            <input ng-model="$ctrl.novi_stan.details.bedrooms" type="number" class="form-control"  min="0">
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-4">
+                                                    <div class="col-md-4">
 
                                                         <div class="form-group">
                                                             <label for="price-range">Bathrooms :</label>
-                                                            <input ng-model="$ctrl.novi_stan.details.bathrooms" type="number" min="0">
+                                                            <input ng-model="$ctrl.novi_stan.details.bathrooms" type="number" class="form-control" min="0">
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-12 padding-top-15">
-                                                    <div class="col-sm-4">
+                                                <div class="col-md-9">
+                                                    <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="price-range">Car garages :</label>
-                                                            <input ng-model="$ctrl.novi_stan.details.car_garages" type="number" min="0">
+                                                            <input ng-model="$ctrl.novi_stan.details.car_garages" type="number" class="form-control" min="0">
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-4">
+                                                    <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="price-range">Garages :</label>
-                                                            <input ng-model="$ctrl.novi_stan.details.garages" type="number" min="0">
+                                                            <input ng-model="$ctrl.novi_stan.details.garages" type="number" class="form-control" min="0">
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-4">
+                                                    <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="price-range">Shawers :</label>
-                                                            <input ng-model="$ctrl.novi_stan.details.shawers" type="number" min="0">
+                                                            <input ng-model="$ctrl.novi_stan.details.shawers" type="number" class="form-control"  min="0">
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-12 padding-bottom-15">
-                                                </div>
-                                                <br>
+                                              
                                             </div>
-                                        </div>
                                     </div>
+                                    <div class="clearfix"></div>
+                                    
 
                                     <div class="wizard-footer">
                                         <div class="pull-right">
                                             <input type='submit' class='btn btn-finish btn-primary ' ng-disabled="form.userForm.$invalid" name='finish' value='Save' />
                                         </div>
                                         <div class="pull-left">
-                                            <input type='button' class='btn btn-previous btn-default' ng-click="$ctrl.odustani()" name='odustani' value='Cancle' />
+                                            <input type='button' class='btn btn-previous btn-default' ng-click="$ctrl.odustani()" name='odustani' value='Cancel' />
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
