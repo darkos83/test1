@@ -33,16 +33,81 @@ app.controller('MyCtrl', function($scope, $window, $http, $location, $uibModal) 
 
 
     vm.login = function () {
-        for (var i in vm.korisnici) {
-            var korisnik = vm.korisnici[i];
-            console.log(korisnik);
-            if (vm.username == korisnik.username && vm.password == korisnik.password) {
-                vm.autorizovan = true;
-                $window.localStorage.setItem('user', JSON.stringify(korisnik));
-                $window.location.href = "index.html";
-            }
+        if (vm.autorizovan) {
+            $window.location.href = "home.html";
         }
-        $scope.alerts.push({ type: 'danger', msg: 'Korisnicko ime ili sifra nisu validni' } );
+        var modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: 'register.html',
+            size: 'lg',
+            windowClass: 'register-modal',
+            controller: function($uibModalInstance, parent){
+                var $ctrl = this;
+
+                $ctrl.login = function () {
+                    for (var i in vm.korisnici) {
+                        var korisnik = vm.korisnici[i];
+                        if ($ctrl.username == korisnik.username && $ctrl.password == korisnik.password) {
+                            vm.autorizovan = true;
+                            $window.localStorage.setItem('user',  JSON.stringify(korisnik));
+                            $uibModalInstance.close(korisnik);
+                            return;
+                        }
+                    }
+                    $scope.alerts.push({ type: 'danger', msg: 'Korisnicko ime ili sifra nisu validni' } );
+                };
+
+                $ctrl.register = function () {
+
+                    for (var i in vm.korisnici) {
+                        var korisnik = vm.korisnici[i];
+                        if ($ctrl.email == korisnik.email) {
+                            $scope.alerts.push({ type: 'danger', msg: 'Korisnicko vec postoji' } );
+                            console.log($scope.alerts);
+                            return;
+                        }
+                    }
+                    if($ctrl.password != $ctrl.password1){
+                        $scope.alerts.push({ type: 'danger', msg: 'Sifre nisu iste' } );
+                        console.log($scope.alerts);
+                        return;
+                    }
+
+                    var user = {
+                        user_id : vm.korisnici.length + 1,
+                        email: $ctrl.email,
+                        username: $ctrl.email,
+                        password: $ctrl.password,
+                        first_name: $ctrl.first_name,
+                        last_name: $ctrl.last_name,
+                        agency: null,
+                        address:null
+                    };
+                    console.log(user);
+                    vm.autorizovan = true;
+                    $window.localStorage.setItem('user',  JSON.stringify(user));
+                    vm.korisnici.push(user);
+                    $uibModalInstance.close(user);
+                };
+
+                $ctrl.odustani = function () {
+                    $uibModalInstance.dismiss('odustani');
+                };
+            },
+            controllerAs: '$ctrl',
+            resolve: {
+                parent: function () {
+                    return vm;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (korisnik) {
+            vm.autorizovan = true;
+            vm.user = korisnik;
+        }, function () {
+            console.log('modal-component dismissed at: ' + new Date());
+        });
     }
 
     vm.orderByColumn = function() {
@@ -179,24 +244,13 @@ app.controller('MyCtrl', function($scope, $window, $http, $location, $uibModal) 
         }else {
             $scope.alerts.push({ type: 'danger', msg: 'Film vise nije omiljen' } )
         }
-     }
-    
-    vm.compare = function(a,b){
-        if(a.price < b.price){
-            return -1;
-            
-        }
-        if(a.price > b.price){
-            return 1;
-        }
-        return 0;
-    }
-    
+     };
+
     vm.logout = function () {
         vm.autorizovan = false;
         $window.localStorage.removeItem('user');
 
-    }
+    };
 
     vm.getPropertImage = function (el) {
         var index = vm.stanovi.indexOf(el) + 1;
@@ -204,19 +258,6 @@ app.controller('MyCtrl', function($scope, $window, $http, $location, $uibModal) 
             index = index % 6 + 1;
         }
         return 'assets/img/demo/property-' + index + '.jpg';
-    }
-
-    vm.register = function () {
-        if(vm.password==vm.password1){
-            vm.autorizovan = true;
-            $window.localStorage.setItem('user', vm.username);
-            $window.location.href = "index.html";
-
-        }else{
-            $scope.alerts.push({ type: 'danger', msg: 'Korisnicko ime ili sifra nisu validni' } );
-            return;
-        }
-
     };
 
     vm.kreirajSatn = function () {
@@ -230,8 +271,6 @@ app.controller('MyCtrl', function($scope, $window, $http, $location, $uibModal) 
             windowClass: 'property-modal',
             controller: function($uibModalInstance, parent){
                 var $ctrl = this;
-
-                $ctrl.stanje = 'Login';
 
                 $ctrl.username = parent.username;
 
@@ -332,7 +371,7 @@ app.controller('MyCtrl', function($scope, $window, $http, $location, $uibModal) 
             }
         }
         return stan;
-    }
+    };
 
     vm.vratiKorisnika = function(user_id) {
         if (user_id == null || user_id == undefined) {
@@ -347,7 +386,7 @@ app.controller('MyCtrl', function($scope, $window, $http, $location, $uibModal) 
             }
         }
         return korisnik;
-    }
+    };
 
     vm.vratiStatus = function(status) {
         switch (status) {
@@ -358,7 +397,7 @@ app.controller('MyCtrl', function($scope, $window, $http, $location, $uibModal) 
             default:
                 return 'Undefined';
         }
-    }
+    };
 
     vm.init = function () {
         var url = $location.$$absUrl;
@@ -415,7 +454,7 @@ app.controller('MyCtrl', function($scope, $window, $http, $location, $uibModal) 
             }, function(resp){
                 vm.message = 'error';
             });
-    }
+    };
 
     vm.init();
 });

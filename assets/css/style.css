@@ -3049,4 +3049,7 @@ padding: 10px;
     .property-modal > .modal-lg {
         width: 1308px;
     }
+    .register-modal > .modal-lg {
+        width: 1308px;
+    }
 }
