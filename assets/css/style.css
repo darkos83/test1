@@ -3045,8 +3045,8 @@ padding: 10px;
     height: 300px;
 }
 
-@media(min-width: 1400px){
+@media(min-width: 950px){
     .property-modal > .modal-lg {
-        width: 1308px;
+        width: 1200px;
     }
 }

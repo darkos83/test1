@@ -35,7 +35,7 @@
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
     </head>
-    <body>
+        <body ng-app="myApp" ng-controller="MyCtrl as vm">
 
         <div id="preloader">
             <div id="status">&nbsp;</div>
@@ -49,7 +49,7 @@
                         <div class="header-half header-call">
                             <p>
                                 <span><i class="pe-7s-call"></i> +1 234 567 7890</span>
-                                <span><i class="pe-7s-mail"></i> your@company.com</span>
+                                <span><i class="pe-7s-mail"></i> nekretnine@gmail.com</span>
                             </p>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
         </div>             
         <!--End top header -->
 
-        <nav class="navbar navbar-default ">
+       <nav class="navbar navbar-default ">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -90,12 +90,12 @@
                     <div class="button navbar-right">
                         <button class="navbar-btn nav-button wow bounceInRight login" ng-hide="vm.autorizovan" onclick="window.open('register.html')" data-wow-delay="0.45s">Login</button>
                         <button class="navbar-btn nav-button wow bounceInRight logout" ng-show="vm.autorizovan" ng-click="vm.logout()" data-wow-delay="0.45s">Logout</button>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.48s">Submit</button>
+                       
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
-
-
-
+                       
+                      
+                       
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="index.html">Home</a></li>
                         <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="properties.html">Properties</a></li>
 
@@ -286,11 +286,15 @@
         <script src="assets/js/icheck.min.js"></script>
         <script src="assets/js/price-range.js"></script>
         
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
-        <script src="assets/js/gmaps.js"></script>        
-        <script src="assets/js/gmaps.init.js"></script>
+ 
 
         <script src="assets/js/main.js"></script>
+            
+                    <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+        <script src="js/app.js"></script>
 
     </body>
 </html>
