@@ -56,7 +56,7 @@
                         <div class="header-half header-social">
                             <ul class="list-inline">
 
-                                <li><span ng-show="vm.autorizovan">Login as: {{vm.user.username}}</span></li>
+                                <li ng-show="vm.autorizovan"><a ng-click="vm.izmeniKorisnika(vm.user)"><span>Login as: {{vm.user.username}}</span></a></li>
 <!--                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fa fa-vine"></i></a></li>
@@ -121,7 +121,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
                         <h2>Nekretnine</h2>
-                       
+                    </div>
                 </div>
             </div>
         </div>
@@ -141,7 +141,7 @@
                         <div class="col-sm-6 col-md-3 p0" ng-repeat="el in vm.svi_stanovi.slice(0,3)">
                             <div class="box-two proerty-item">
                                 <div class="item-thumb">
-                                    <a href="property-1.html" ><img src="assets/img/demo/property-1.jpg"></a>
+                                    <a href="property.html?property_id={{el.property_id}}" ><img src="{{vm.getPropertImage(el)}}"></a>
                                 </div>
                                 <div class="item-entry overflow">
                                     <h5><a href="property-1.html" >{{el.title}} </a></h5>
@@ -159,7 +159,7 @@
                                     <i class="fa fa-th"></i>
                                 </div>
                                 <div class="more-entry overflow">
-                                    <h5><a href="property-1.html" >CAN'T DECIDE ? </a></h5>
+                                    <h5><a href="properties.html" >CAN'T DECIDE ? </a></h5>
                                     <h5 class="tree-sub-ttl">Show all properties</h5>
                                     <button class="btn border-btn more-black"  value="All properties"><a href="properties.html">All properties</a></button>
                                 </div>
@@ -169,10 +169,6 @@
             </div>
         </div>
 
-        
-     
-
-       
 
         <!-- Count area -->
         <div class="count-area">

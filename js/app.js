@@ -31,6 +31,7 @@ app.controller('MyCtrl', function($scope, $window, $http, $location, $uibModal) 
         $scope.alerts.splice(index, 1);
     };
 
+    vm.contact = {};
 
     vm.login = function () {
         if (vm.autorizovan) {
@@ -43,7 +44,9 @@ app.controller('MyCtrl', function($scope, $window, $http, $location, $uibModal) 
             windowClass: 'register-modal',
             controller: function($uibModalInstance, parent){
                 var $ctrl = this;
+                $ctrl.action = 'login';
 
+                $ctrl.alerts = [];
                 $ctrl.login = function () {
                     for (var i in vm.korisnici) {
                         var korisnik = vm.korisnici[i];
@@ -54,25 +57,23 @@ app.controller('MyCtrl', function($scope, $window, $http, $location, $uibModal) 
                             return;
                         }
                     }
-                    $scope.alerts.push({ type: 'danger', msg: 'Korisnicko ime ili sifra nisu validni' } );
+                    $ctrl.alerts.push({ type: 'danger', msg: 'Korisnicko ime ili sifra nisu validni' } );
                 };
 
                 $ctrl.register = function () {
-
                     for (var i in vm.korisnici) {
                         var korisnik = vm.korisnici[i];
                         if ($ctrl.email == korisnik.email) {
-                            $scope.alerts.push({ type: 'danger', msg: 'Korisnicko vec postoji' } );
-                            console.log($scope.alerts);
+                            $ctrl.alerts.push({ type: 'danger', msg: 'Korisnicko vec postoji' } );
+                            console.log($ctrl.alerts);
                             return;
                         }
                     }
                     if($ctrl.password != $ctrl.password1){
-                        $scope.alerts.push({ type: 'danger', msg: 'Sifre nisu iste' } );
-                        console.log($scope.alerts);
+                        $ctrl.alerts.push({ type: 'danger', msg: 'Sifre nisu iste' } );
+                        console.log($ctrl.alerts);
                         return;
                     }
-
                     var user = {
                         user_id : vm.korisnici.length + 1,
                         email: $ctrl.email,
@@ -93,6 +94,10 @@ app.controller('MyCtrl', function($scope, $window, $http, $location, $uibModal) 
                 $ctrl.odustani = function () {
                     $uibModalInstance.dismiss('odustani');
                 };
+
+                $ctrl.closeAlert = function(index) {
+                    $ctrl.alerts.splice(index, 1);
+                };
             },
             controllerAs: '$ctrl',
             resolve: {
@@ -108,7 +113,70 @@ app.controller('MyCtrl', function($scope, $window, $http, $location, $uibModal) 
         }, function () {
             console.log('modal-component dismissed at: ' + new Date());
         });
-    }
+    };
+
+    vm.izmeniKorisnika = function (el) {
+        var modalInstance = $uibModal.open({
+            animation: false,
+            templateUrl: 'user-profile.html',
+            size: 'lg',
+            windowClass: 'korisnik-modal',
+            controller: function($uibModalInstance, korisnik){
+                var $ctrl = this;
+
+                $ctrl.korisnik = angular.copy(korisnik);
+
+                $ctrl.alerts = [];
+
+                $ctrl.closeAlert = function(index) {
+                    $ctrl.alerts.splice(index, 1);
+                };
+
+                $ctrl.izmeni = function() {
+                    for (var i in vm.korisnici) {
+                        var _korisnik = vm.korisnici[i];
+                        if ($ctrl.korisnik.user_id != _korisnik.user_id && $ctrl.korisnik.email == _korisnik.email) {
+                            $ctrl.alerts.push({ type: 'danger', msg: 'Korisnicko vec postoji' } );
+                            console.log($ctrl.alerts);
+                            return;
+                        }
+                    }
+                    if($ctrl.korisnik.password != $ctrl.korisnik.password1){
+                        $ctrl.alerts.push({ type: 'danger', msg: 'Sifre nisu iste' } );
+                        console.log($ctrl.alerts);
+                        return;
+                    }
+
+                    korisnik.username = $ctrl.korisnik.hasOwnProperty('username') ? $ctrl.korisnik.username : null;
+                    korisnik.email = $ctrl.korisnik.hasOwnProperty('email') ? $ctrl.korisnik.email : null;
+                    korisnik.password = $ctrl.korisnik.hasOwnProperty('password') ? $ctrl.korisnik.password : null;
+                    korisnik.first_name = $ctrl.korisnik.hasOwnProperty('first_name') ? $ctrl.korisnik.first_name : null;
+                    korisnik.last_name = $ctrl.korisnik.hasOwnProperty('last_name') ? $ctrl.korisnik.last_name : null;
+                    korisnik.agency = $ctrl.korisnik.hasOwnProperty('agency') ? $ctrl.korisnik.agency : null;
+                    korisnik.phone = $ctrl.korisnik.hasOwnProperty('phone') ? $ctrl.korisnik.phone : null;
+                    korisnik.address = $ctrl.korisnik.hasOwnProperty('address') ? $ctrl.korisnik.address : null;
+
+                    $window.localStorage.setItem('user',  JSON.stringify(korisnik));
+                    $uibModalInstance.close();
+                };
+
+                $ctrl.odustani = function () {
+                    $uibModalInstance.dismiss('cancel');
+                };
+            },
+            controllerAs: '$ctrl',
+            resolve: {
+                korisnik: function () {
+                    return el;
+                }
+            }
+        });
+
+        modalInstance.result.then(function () {
+        }, function () {
+            console.log('modal-component dismissed at: ' + new Date());
+        });
+    };
 
     vm.orderByColumn = function() {
         console.log(vm.reverse);
@@ -119,7 +187,7 @@ app.controller('MyCtrl', function($scope, $window, $http, $location, $uibModal) 
             vm.sortClass = 'fa-sort-numeric-desc';
             vm.reverse = true;
         }
-    }
+    };
     vm.removeProperty = function (item) {
         if (confirm('Da li ste sigurni')) {
             var index = vm.stanovi.indexOf(item);
@@ -397,6 +465,14 @@ app.controller('MyCtrl', function($scope, $window, $http, $location, $uibModal) 
             default:
                 return 'Undefined';
         }
+    };
+
+    vm.posaliMail = function () {
+        if (!vm.contact.hasOwnProperty('email') || vm.contact.email == undefined) {
+            $scope.alerts.push({ type: 'danger', msg: 'Email je prazan ili nije validan.' });
+            return;
+        }
+        $scope.alerts.push({ type: 'success', msg: 'Hvala sto ste nas kontaktirali.' } )
     };
 
     vm.init = function () {

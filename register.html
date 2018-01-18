@@ -16,7 +16,14 @@
 <div class="register-area" style="background-color: rgb(249, 249, 249);">
     <div class="container">
 
-        <div class="col-md-6">
+        <div class="register-modal col-md-6" uib-alert
+             ng-repeat="alert in $ctrl.alerts" ng-class="'alert-' + (alert.type || 'warning')"
+             dismiss-on-timeout="2000"
+             close="$ctrl.closeAlert($index)">{{alert.msg}}</div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-md-6" ng-show="$ctrl.action == 'register'">
             <div class="box-for overflow">
                 <div class="col-md-12 col-xs-12 register-blocks">
                     <h2>New account : </h2>
@@ -59,13 +66,18 @@
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-default" ng-disabled="!registerForm.$valid">Register</button>
+                            <a class="btn btn-default" ng-click="$ctrl.odustani()">Cancle</a>
                         </div>
+                        <br/>
+                        <p>
+                            <a ng-click="$ctrl.action = 'login'">Login</a>
+                        </p>
                     </form>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6" ng-show="$ctrl.action == 'login'">
             <div class="box-for overflow">
                 <div class="col-md-12 col-xs-12 login-blocks">
                     <h2>Login : </h2>
@@ -79,20 +91,15 @@
                             <input type="password" ng-model="$ctrl.password" class="form-control" id="password">
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-default" ng-click="$ctrl.login()"> Log in</button>
+                            <button type="submit" class="btn btn-default" ng-click="$ctrl.login()">Log in</button>
+                            <a class="btn btn-default" ng-click="$ctrl.odustani()">Cancle</a>
                         </div>
                     </form>
                     <br>
-
-                    <h2>Social login :  </h2>
-
                     <p>
-                        <a class="login-social" href="#"><i class="fa fa-facebook"></i>&nbsp;Facebook</a>
-                        <a class="login-social" href="#"><i class="fa fa-google-plus"></i>&nbsp;Gmail</a>
-                        <a class="login-social" href="#"><i class="fa fa-twitter"></i>&nbsp;Twitter</a>
+                        <a ng-click="$ctrl.action = 'register'">Register</a>
                     </p>
                 </div>
-
             </div>
         </div>
 

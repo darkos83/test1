@@ -3050,6 +3050,9 @@ padding: 10px;
         width: 1200px;
     }
     .register-modal > .modal-lg {
-        width: 1308px;
+        width: 680px;
+    }
+    .korisnik-modal > .modal-lg {
+        width: 1200px;
     }
 }
