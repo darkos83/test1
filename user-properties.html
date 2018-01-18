@@ -57,7 +57,7 @@
                     <div class="col-md-2 col-md-offset-5  col-sm-3 col-sm-offset-1  col-xs-12">
                         <div class="header-half header-social">
                             <ul class="list-inline">
-                                <li><span ng-show="vm.autorizovan">Login as: {{vm.user.username}}</span></li>
+                               <li ng-show="vm.autorizovan"><a ng-click="vm.izmeniKorisnika(vm.user)"><span>Login as: {{vm.user.username}}</span></a></li>
   <!--                              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fa fa-vine"></i></a></li>
@@ -88,9 +88,9 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" ng-hide="vm.autorizovan" onclick="window.open('register.html')" data-wow-delay="0.45s">Login</button>
+                        <button class="navbar-btn nav-button wow bounceInRight login" ng-hide="vm.autorizovan" ng-click="vm.login()" data-wow-delay="0.45s">Login</button>
                         <button class="navbar-btn nav-button wow bounceInRight logout" ng-show="vm.autorizovan" ng-click="vm.logout()" data-wow-delay="0.45s">Logout</button>
-                        
+                       
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
 
@@ -323,15 +323,7 @@
                                 <div class="footer-title-line"></div>
                                 <p>Lorem ipsum dolor sit amet, nulla  suscipit similique quisquam molestias. Vel unde, blanditiis.</p>
 
-                                <form>
-                                    <div class="input-group">
-                                        <input class="form-control" type="text" placeholder="E-mail ... ">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-primary subscribe" type="button"><i class="pe-7s-paper-plane pe-2x"></i></button>
-                                        </span>
-                                    </div>
-                                    <!-- /input-group -->
-                                </form> 
+                              
 
                                 <div class="social pull-right"> 
                                     <ul>
